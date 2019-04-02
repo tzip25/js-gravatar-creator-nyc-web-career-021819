@@ -12,9 +12,9 @@ class Identicon {
 
   cssRenderer() {this.hashIdenticon().map(x => x%2 === 0 ? 1 : 0).map(function(num, index) {
     if (num === 1){
-      document.getElementById(`${index%3}-${Math.floor(index/3)}`).style.backgroundColor = blockColor;
+      document.getElementById(`${Math.floor(index/3)}-${index%3 === 0 ? 2 : index%3 - 1}`).style.backgroundColor = blockColor;
       if (index % 3 !== 0){
-        document.getElementById(`${5 - index%3}-${Math.floor(index/3)}`).style.backgroundColor = blockColor
+        document.getElementById(`${Math.floor(index/3)}-${5 - index%3}`).style.backgroundColor = blockColor
       }
     }
   })
