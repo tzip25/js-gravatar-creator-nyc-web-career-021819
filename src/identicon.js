@@ -10,10 +10,14 @@ class Identicon {
     return hashed
   }
 
-  cssRenderer() {this.hashIdenticon().map(x => x%2 === 0 ? 1 : 0).map(function(num, index)
-    {if (num ===1)
-      {document.getElementById(`${Math.floor(index/5)}-${index%5}`).style.backgroundColor = blockColor} })
-
+  cssRenderer() {this.hashIdenticon().map(x => x%2 === 0 ? 1 : 0).map(function(num, index) {
+    if (num === 1){
+      document.getElementById(`${index%3}-${Math.floor(index/3)}`).style.backgroundColor = blockColor;
+      if (index % 3 !== 0){
+        document.getElementById(`${5 - index%3}-${Math.floor(index/3)}`).style.backgroundColor = blockColor
+      }
+    }
+  })
   }
 
   // const rowIdx = 0
